@@ -1,0 +1,196 @@
+body {
+  /* background-color: #f89215 !important; BTC Orange */
+  margin: 0;
+  color: #FFFFFF; /* White text for contrast */
+  background-color: #121212 !important;   /* Dark Grey */
+  font-family: Arial, Helvetica, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* this will ensure the app takes the full viewport height */
+}
+
+.btc-logo {
+  width: 100px; /* or any desired size */
+  height: 100px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* to perfectly center the logo */
+  z-index: 3; /* increased z-index to ensure it's above the header */
+}
+
+.marquee-container {
+  /* border: 1px solid black; */
+  width: 100vw; /* Set to 100% of viewport width */
+  overflow: hidden; /* Hide the overflowing part of the marquee */
+  position: relative; /* Needed to properly position the marquee div */
+  display: flex;
+  align-items: center;
+
+}
+
+
+@keyframes marquee {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100vw);
+  }
+}
+
+@keyframes marqueeReverse {
+  0% {
+    transform: translateX(100vw);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.btc-marquee {
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+  animation: marquee 20s linear infinite;
+  /* border: 1px solid red; */
+  height: 100px;
+  z-index: 2;
+}
+
+.flipped-image {
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+  animation: marqueeReverse 20s infinite linear; 
+   /* border: 1px solid red;  */
+  height: 100px;
+  z-index: 2;
+  
+}
+
+
+.resources-list {
+  padding: 10px;
+  border: 1px solid #ddd;
+  max-width: 250px;
+  margin: 20px;
+}
+
+.resources-list a {
+  display: block;
+  padding: 10px 0;
+  text-decoration: none;
+  color: #333;
+  transition: background-color 0.3s ease;
+}
+
+.resources-list a:hover {
+  background-color: #f89215;
+  border-radius: 5px; /* Add rounded corners */
+}
+
+
+.meme-window {
+padding: 10px;
+border: 1px solid #ddd;
+max-width: 500px; /* or whatever size you desire */
+margin: 20px;
+}
+
+.meme-window iframe {
+width: 100%;
+height: 280px; /* adjust accordingly */
+}
+
+.app-container {
+display: flex;
+flex-direction: column;
+align-items: center;
+animation: fadeIn 1s ease-out;
+
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.btc-marquee {
+margin-top: 20px;
+margin-bottom: 20px;
+}
+
+.btc-logo {
+width: 100px; /* Adjust the size as needed */
+height: auto;
+}
+
+/* .events-and-resources {
+display: flex;
+justify-content: space-between;
+width: 90%; /* Adjust width based on your layout preference */
+/* max-width: 33%;  /* Adjust as needed  
+border: 10px solid rgb(248, 248, 248);
+} */
+
+
+
+.meme-window {
+margin-top: 20px;
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow for depth */
+background-color: #1B1F23; /* Add a light blue background */
+border-radius: 5px; /* Add rounded corners */
+border: 5px solid rgb(248, 248, 248);
+color: #ddd;
+}
+
+.parent-container {
+  display: flex;
+  justify-content: center; /* Center the children horizontally */
+  align-items: start;      /* Align the divs to the top */
+}
+
+.resources-list {
+  flex-grow: 1;            /* Let it take up all available space to its left */
+  background-color: #2E2E2E; /* Add a light blue background */
+  color: #FFFFFF;
+  border-radius: 5px; /* Add rounded corners */
+  transition: all 0.3s ease; /* Smooth transition for all changes */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow for depth */
+  border: 5px solid rgb(248, 248, 248);
+  color: #FFFFFF;
+  
+}
+
+.resources-list a:hover {
+  transform: scale(1.05); /* Slight grow effect on hover */
+}
+
+.countdown-header {
+  position: absolute;  
+  top: 0;              
+  left: 50%;           
+  transform: translateX(-50%); 
+  font-size: 3rem;     
+  z-index: 1;          
+  text-align: center;
+  color: #FFF; 
+  background-color: #f89215; /* BTC Orange as accent */
+  padding: 4px 30px; /* Add some padding */
+  border-radius: 8px; /* Soft rounded corners */
+}
+
+.resources a {
+  color: white;
+}
+
+.countdown-events{
+
+  margin-left: 4%;
+}
