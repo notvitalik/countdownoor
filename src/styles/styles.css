@@ -20,8 +20,22 @@ body {
   z-index: 3; /* increased z-index to ensure it's above the header */
 }
 
+.countdown-header {
+  position: absolute;  
+  top: 0;              
+  left: 50%;           
+  transform: translateX(-50%); 
+  font-size: 3rem;     
+  z-index: 1;          
+  text-align: center;
+  color: #FFF; 
+  background-color: #f89215; /* BTC Orange as accent */
+  padding: 4px 30px; /* Add some padding */
+  border-radius: 8px; /* Soft rounded corners */
+}
+
 .marquee-container {
-  /* border: 1px solid black; */
+   /* border: 1px solid red;  */
   width: 100vw; /* Set to 100% of viewport width */
   overflow: hidden; /* Hide the overflowing part of the marquee */
   position: relative; /* Needed to properly position the marquee div */
@@ -29,6 +43,47 @@ body {
   align-items: center;
 
 }
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: fadeIn 1s ease-out;
+  }
+  
+
+.parent-container {
+    display: flex;
+    justify-content: center; /* Center the children horizontally */
+    align-items: start;      /* Align the divs to the top */
+    /* border: 1px solid red; */
+    width: 90%;
+  }
+
+
+
+  .btc-marquee {
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    animation: marquee 20s linear infinite;
+    /* border: 1px solid red; */
+    height: 100px;
+    z-index: 2;
+  }
+  
+  .flipped-image {
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    animation: marqueeReverse 20s infinite linear; 
+     /* border: 1px solid red;  */
+    height: 100px;
+    z-index: 2;
+    
+  }
+  
+  
 
 
 @keyframes marquee {
@@ -49,33 +104,22 @@ body {
   }
 }
 
-.btc-marquee {
-  display: inline-block;
-  white-space: nowrap;
-  overflow: hidden;
-  animation: marquee 20s linear infinite;
-  /* border: 1px solid red; */
-  height: 100px;
-  z-index: 2;
-}
-
-.flipped-image {
-  display: inline-block;
-  white-space: nowrap;
-  overflow: hidden;
-  animation: marqueeReverse 20s infinite linear; 
-   /* border: 1px solid red;  */
-  height: 100px;
-  z-index: 2;
-  
-}
-
-
 .resources-list {
   padding: 10px;
   border: 1px solid #ddd;
-  max-width: 250px;
-  margin: 20px;
+  max-width: 350px;  /* This value is from the second style and will overwrite the first */
+  max-height: 400px;
+  overflow-y: auto;
+  /* margin-top: 20px; */
+  margin: 20px; 
+       /* This value might cause a conflict with margin-top, it's better to specify individual margins if needed */
+  flex: 0.3;
+  background-color: #2E2E2E;
+  color: #FFFFFF;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border: 5px solid rgb(248, 248, 248);
 }
 
 .resources-list a {
@@ -89,28 +133,11 @@ body {
 .resources-list a:hover {
   background-color: #f89215;
   border-radius: 5px; /* Add rounded corners */
+  transform: scale(1.05); /* Slight grow effect on hover */
 }
 
 
-.meme-window {
-padding: 10px;
-border: 1px solid #ddd;
-max-width: 500px; /* or whatever size you desire */
-margin: 20px;
-}
 
-.meme-window iframe {
-width: 100%;
-height: 280px; /* adjust accordingly */
-}
-
-.app-container {
-display: flex;
-flex-direction: column;
-align-items: center;
-animation: fadeIn 1s ease-out;
-
-}
 
 @keyframes fadeIn {
   from {
@@ -131,66 +158,35 @@ width: 100px; /* Adjust the size as needed */
 height: auto;
 }
 
-/* .events-and-resources {
-display: flex;
-justify-content: space-between;
-width: 90%; /* Adjust width based on your layout preference */
-/* max-width: 33%;  /* Adjust as needed  
-border: 10px solid rgb(248, 248, 248);
-} */
-
 
 
 .meme-window {
-margin-top: 20px;
+/* margin-top: 20px; */
 box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow for depth */
 background-color: #1B1F23; /* Add a light blue background */
 border-radius: 5px; /* Add rounded corners */
 border: 5px solid rgb(248, 248, 248);
 color: #ddd;
+padding: 10px;
+margin: 20px;
+max-width: 500px; /* or whatever size you desire */
 }
 
-.parent-container {
-  display: flex;
-  justify-content: center; /* Center the children horizontally */
-  align-items: start;      /* Align the divs to the top */
-}
 
-.resources-list {
-  flex-grow: 1;            /* Let it take up all available space to its left */
-  background-color: #2E2E2E; /* Add a light blue background */
-  color: #FFFFFF;
-  border-radius: 5px; /* Add rounded corners */
-  transition: all 0.3s ease; /* Smooth transition for all changes */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow for depth */
-  border: 5px solid rgb(248, 248, 248);
-  color: #FFFFFF;
+.meme-window iframe {
+width: 100%;
+height: 280px; /* adjust accordingly */
+}
   
-}
 
-.resources-list a:hover {
-  transform: scale(1.05); /* Slight grow effect on hover */
-}
 
-.countdown-header {
-  position: absolute;  
-  top: 0;              
-  left: 50%;           
-  transform: translateX(-50%); 
-  font-size: 3rem;     
-  z-index: 1;          
-  text-align: center;
-  color: #FFF; 
-  background-color: #f89215; /* BTC Orange as accent */
-  padding: 4px 30px; /* Add some padding */
-  border-radius: 8px; /* Soft rounded corners */
-}
+
+
 
 .resources a {
   color: white;
 }
 
 .countdown-events{
-
   margin-left: 4%;
 }
